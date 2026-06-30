@@ -6,13 +6,13 @@ Possible Errors:
 - ERROR >> could not open file "C:\Users\...\company_dim.csv" for reading: Permission denied
 
 1. Drop the Database 
-            DROP DATABASE IF EXISTS sql_course;
+            DROP DATABASE IF EXISTS sql_project;
 2. Repeat steps to create database and load table schemas
             - 1_create_database.sql
             - 2_create_tables.sql
 3. Open pgAdmin
-4. In Object Explorer (left-hand pane), navigate to `sql_course` database
-5. Right-click `sql_course` and select `PSQL Tool`
+4. In Object Explorer (left-hand pane), navigate to `sql_project` database
+5. Right-click `sql_project` and select `PSQL Tool`
             - This opens a terminal window to write the following code
 6. Get the absolute file path of your csv files
             1. Find path by right-clicking a CSV file in VS Code and selecting “Copy Path”
@@ -28,19 +28,12 @@ Possible Errors:
 
 */
 
--- NOTE: This has been updated from the video to fix issues with encoding
-COPY company_dim
-FROM 'C:\Program Files\PostgreSQL\16\data\Datasets\sql_course\company_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy company_dim FROM 'C:\Users\AB\OneDrive\Documents\AMR_20260308\Projects\20260701_Job_Market_Skills_Demand_Analysis_SQL_PowerBI\csv_files\company_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-COPY skills_dim
-FROM 'C:\Program Files\PostgreSQL\16\data\Datasets\sql_course\skills_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy skills_dim FROM 'C:\Users\AB\OneDrive\Documents\AMR_20260308\Projects\20260701_Job_Market_Skills_Demand_Analysis_SQL_PowerBI\csv_files\skills_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-COPY job_postings_fact
-FROM 'C:\Program Files\PostgreSQL\16\data\Datasets\sql_course\job_postings_fact.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy job_postings_fact FROM 'C:\Users\AB\OneDrive\Documents\AMR_20260308\Projects\20260701_Job_Market_Skills_Demand_Analysis_SQL_PowerBI\csv_files\job_postings_fact.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-COPY skills_job_dim
-FROM 'C:\Program Files\PostgreSQL\16\data\Datasets\sql_course\skills_job_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy skills_job_dim FROM 'C:\Users\AB\OneDrive\Documents\AMR_20260308\Projects\20260701_Job_Market_Skills_Demand_Analysis_SQL_PowerBI\csv_files\skills_job_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+-- DATABASE LOAD COMPLETE
