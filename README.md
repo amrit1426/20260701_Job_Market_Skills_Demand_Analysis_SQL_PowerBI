@@ -80,7 +80,7 @@ This project answers those questions directly, using postings data rather than o
 | | |
 |---|---|
 | **Source** | Job postings dataset originally compiled by [Luke Barousse](https://www.lukebarousse.com/) |
-| **Dataset Link** | https://drive.google.com/drive/folders/1pqzd7xQ05TUIEbMuR5N0e8PtLeCifK5y?usp=sharing |
+| **Dataset** | 📁 [Google Drive Dataset (CSV Files)](https://drive.google.com/drive/folders/1pqzd7xQ05TUIEbMuR5N0e8PtLeCifK5y?usp=sharing) |
 | **Grain** | One row per job posting, exploded to one row per (job posting × skill) via a bridge table |
 | **Scale (as loaded)** | 787,686 job postings · 259 distinct skills · ~140K companies · 161 countries |
 | **Time coverage** | Job postings dated across 2023 (monthly posting activity is tracked on the dashboard) |
