@@ -4,7 +4,7 @@
 
 ### End-to-End Data Analytics Project using PostgreSQL, SQL & Power BI
 
-*Turning 787K+ raw job postings into a decision-ready view of where the data job market is heading — and which skills actually pay.*
+*Transforming 787K+ global job postings into actionable insights on where the data job market is heading — and which skills actually pay — using PostgreSQL, SQL, and Power BI.*
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4169E1?style=flat&logo=databricks&logoColor=white)
@@ -15,6 +15,31 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 
 </div>
+
+---
+
+## 📋 Table of Contents
+
+- [Project Overview](#-project-overview)
+- [Business Problem](#-business-problem)
+- [Project Objectives](#-project-objectives)
+- [Dataset Overview](#-dataset-overview)
+- [Project Architecture](#-project-architecture)
+- [Database Design](#-database-design)
+- [SQL Analysis](#-sql-analysis)
+- [SQL Skills Demonstrated](#-sql-skills-demonstrated)
+- [Power BI Development](#-power-bi-development)
+- [Dashboard Walkthrough](#-dashboard-walkthrough)
+- [Business Insights](#-business-insights)
+- [Recommendations](#-recommendations)
+- [Technology Stack](#-technology-stack)
+- [Repository Structure](#-repository-structure)
+- [Installation](#-installation)
+- [Dashboard Preview](#-dashboard-preview)
+- [Skills Demonstrated](#-skills-demonstrated)
+- [Learning Outcomes](#-learning-outcomes)
+- [Future Improvements](#-future-improvements)
+- [Acknowledgements](#-acknowledgements)
 
 ---
 
@@ -108,10 +133,7 @@ The schema lives in [`sql/database`](sql/database) and follows a standard fact/d
 
 **ER Diagram:**
 
-```text
-images/ER_Diagram.png
-```
-*(placeholder — export the PostgreSQL or Power BI model diagram and drop it here)*
+![ER Diagram](images/ER_Diagram.png)
 
 ---
 
@@ -176,7 +198,6 @@ All queries live in [`sql/analysis`](sql/analysis) and build on each other in co
 | Grouping & aggregation (`GROUP BY`, `COUNT`, `AVG`, `ROUND`) | `3_top_demanding_skills.sql` → `5_most__optimal_skills.sql` |
 | Post-aggregation filtering (`HAVING`) | `5_most__optimal_skills.sql` |
 | Sorting & top-N filtering (`ORDER BY`, `LIMIT`) | All analysis queries |
-| Window functions (`RANK`, `ROW_NUMBER`, etc.) | *Not used in the current queries — see Future Improvements* |
 
 ---
 
@@ -307,8 +328,8 @@ The report was inspected directly from the `.pbix` file to document what's actua
 │
 ├── images/
 │   ├── dashboard.pdf
-│   ├── dashboard_screenshot.jpg
-│   └── ER_Diagram.png              # placeholder — add exported diagram
+│   ├── dashboard_screenshot.jpg    # combined preview of all 4 report pages
+│   └── ER_Diagram.png
 │
 └── README.md
 ```
@@ -332,11 +353,9 @@ The report was inspected directly from the `.pbix` file to document what's actua
 
 ## 🖼️ Dashboard Preview
 
-**Executive Overview**
+![Dashboard Preview — all four report pages](images/dashboard_screenshot.jpg)
 
-![Dashboard Overview](images/dashboard_screenshot.jpg)
-
-The remaining three pages — Job Market Analysis, Skills Analysis, and Salary & Company Analysis — are included in [`dashboard.pdf`](images/dashboard.pdf). Exporting each page as its own PNG (e.g., `images/page_job_market.png`, `images/page_skills.png`, `images/page_salary_company.png`) is recommended for a richer preview section if this README is extended later.
+*A combined overview of all four report pages — Executive Overview, Job Market Analysis, Skills Analysis, and Salary & Company Analysis — arranged into a single image so recruiters and reviewers can see the full dashboard at a glance without scrolling through separate screenshots. The full-resolution export is available in [`dashboard.pdf`](images/dashboard.pdf), and the live, interactive report is in [`job_market_skills_demand_analysis.pbix`](powerbi/job_market_skills_demand_analysis.pbix).*
 
 ---
 
@@ -355,10 +374,10 @@ This project moves beyond writing individual SQL queries or building a single Po
 ## 🚀 Future Improvements
 
 - Add window-function-based queries (e.g., `RANK()` or `ROW_NUMBER()` partitioned by country or job title) to surface "top skill per market segment" without hardcoding filters.
-- Add row-level or bookmark-based filtering so a viewer can save a specific country/title view of the dashboard.
-- Automate the CSV → PostgreSQL load with a scheduled script instead of manual `\copy` commands.
-- Add a scheduled refresh (Power BI Service / gateway) so the dashboard updates automatically as new postings are loaded.
-- Export and add the ER diagram and per-page dashboard screenshots referenced as placeholders above.
+- Deploy to **Power BI Service** with **Incremental Refresh** so the model only reprocesses new or changed postings instead of a full reload.
+- Implement **Row-Level Security (RLS)** so different stakeholders (e.g., regional hiring teams) see only the country or company data relevant to them.
+- Automate the CSV → PostgreSQL load into a scheduled ETL process instead of manual `\copy` commands.
+- Integrate additional datasets (e.g., cost-of-living or broader labour-market indices) to extend the salary analysis beyond raw postings data.
 
 ---
 
